@@ -6,9 +6,13 @@
     "connection.user": "appuser",
     "connection.password": "appuserpw",
     "table.whitelist": "APPUSER.YOUR_TABLE",
-    "mode": "incrementing",
-    "incrementing.column.name": "ID",
+    "mode": "timestamp",
+    "timestamp.column.name": "CREATED_AT",
     "topic.prefix": "oracle-",
-    "poll.interval.ms": 10000
+    "poll.interval.ms": 10000,
+    "auto.create.topics.enable": "true",
+    "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter.schemas.enable": "false"
   }
 } 

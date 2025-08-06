@@ -9,20 +9,21 @@ docker-compose up --build
 curl -X DELETE http://localhost:8083/connectors/oracle-jdbc-source
 curl -X POST -H "Content-Type: application/json" --data @register-oracle-source.json http://localhost:8083/connectors
 
-
+curl http://localhost:8083/connectors
 curl http://localhost:8083/connectors/oracle-jdbc-source/config
 curl http://localhost:8083/connectors/oracle-jdbc-source/status
 
 
 
+
 CREATE TABLE YOUR_TABLE (
-    ID NUMBER(38, 0) PRIMARY KEY,
-    NAME VARCHAR2(100),
-    CREATED_AT DATE
-  );
+  ID NUMBER PRIMARY KEY, 
+  NAME VARCHAR2(100), 
+  DESCRIPTION VARCHAR2(500), 
+  CREATED_AT TIMESTAMP DEFAULT SYSTIMESTAMP
+);
 
-
-INSERT INTO YOUR_TABLE (ID, NAME, CREATED_AT) VALUES (3, '테스트', SYSDATE);
+INSERT INTO YOUR_TABLE (ID, NAME, DESCRIPTION, CREATED_AT) VALUES (3, '테스트', '테스트t', SYSDATE);
    COMMIT;
 
 
