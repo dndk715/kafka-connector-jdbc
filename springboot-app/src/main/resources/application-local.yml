@@ -1,0 +1,4 @@
+spring:
+  kafka:
+    consumer:
+      group-id: oracle-consumer-group-local 
