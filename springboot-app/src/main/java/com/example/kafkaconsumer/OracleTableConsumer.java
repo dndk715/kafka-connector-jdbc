@@ -1,10 +1,12 @@
 package com.example.kafkaconsumer;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
 
 @Service
+@ConditionalOnProperty(name = "spring.kafka.enabled", havingValue = "true", matchIfMissing = true)
 public class OracleTableConsumer {
     
     @KafkaListener(topics = "oracle-YOUR_TABLE", groupId = "${spring.kafka.consumer.group-id}")

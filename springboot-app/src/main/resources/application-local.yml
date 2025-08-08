@@ -1,4 +1,9 @@
 spring:
   kafka:
+    # 로컬 환경에서 카프카 연동 비활성화
+    enabled: false
     consumer:
-      group-id: oracle-consumer-group-local 
+      group-id: oracle-consumer-group-local
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.kafka.KafkaAutoConfiguration
